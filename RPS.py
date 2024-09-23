@@ -57,7 +57,32 @@ if userwins>compwins:
 elif compwins<userwins:
     print("Overall winner is computer")
 else:
-    print("Match is tie")
+    print("Match is tie") 
+
+
+
+
+
+def write_to_file(userwins, compwins, draw):
+    with open('game_results.txt', 'w') as file:
+        file.write("Final Results:\n")
+        file.write(f"User Wins: {userwins}\n")
+        file.write(f"Computer Wins: {compwins}\n")
+        file.write(f"Draw: {draw}\n")
+        
+        if userwins > compwins:
+            file.write("Overall winner is User\n")
+        elif compwins > userwins:
+            file.write("Overall winner is Computer\n")
+        else:
+            file.write("Match is a tie\n")
+
+# At the end of all rounds, write the results to a file
+write_to_file(userwins, compwins, draw)
+
+print("Results saved to 'game_results.txt'.")
+
+
 
 
 
